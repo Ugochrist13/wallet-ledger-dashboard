@@ -15,7 +15,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Chris Wallet Ledger",
-  description: "A sample wallet ledger UI developed by christian using Next and tailwind css",
+  description:
+    "A sample wallet ledger UI developed by christian using Next and tailwind css",
+  themeColor: "#ffffff",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -26,10 +31,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex p-2`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 text-gray-900`}
       >
-         <Sidebar />
-        {children}
+        <div className="min-h-screen w-full flex flex-col md:flex-row">
+          <Sidebar />
+          <main className="flex-1 md:p-4 lg:p-1">{children}</main>
+        </div>
       </body>
     </html>
   );

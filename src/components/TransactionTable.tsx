@@ -42,7 +42,7 @@ export default function TransactionsTable() {
   });
 
   const headers = [
-    { label: "Date", field: "date", extraClass: "pl-6 pr-[120px]" },
+    { label: "Date", field: "date", extraClass: "pl-6 pr-[80px]" },
     { label: "Remark", field: "remark", extraClass: "px-2" },
     { label: "Amount", field: "amount", extraClass: "px-2" },
     { label: "Currency", field: "currency", extraClass: "px-2" },
@@ -50,26 +50,26 @@ export default function TransactionsTable() {
   ] as const;
 
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full text-sm">
+    <div className="overflow-x-auto w-full">
+      <table className="min-w-full text-xs md:text-sm">
         <thead>
           <tr className="text-left">
             {headers.map(({ label, field, extraClass }) => (
               <th
                 key={field}
                 onClick={() => handleSort(field)}
-                className={`py-2 cursor-pointer ${extraClass}`}
+                className={`py-2 cursor-pointer w-full ${extraClass}`}
               >
-                <div className="flex w-full border-[#4B8B9F] border-b-[.2px] pb-1 items-center gap-1">
+                <div className="flex w-full border-[#78c2d8] border-b-[.2px] pb-1 items-center gap-1">
                   {label}
                   {sortField === field ? (
                     sortAsc ? (
-                      <ArrowUp className="w-4 h-4 text-[#4B8B9F]" />
+                      <ArrowUp className="w-3 md:w-4 h-3 md:h-4 text-[#4B8B9F]" />
                     ) : (
-                      <ArrowDown className="w-4 h-4 text-[#4B8B9F]" />
+                      <ArrowDown className="w-3 md:w-4 h-3 md:h-4 text-[#4B8B9F]" />
                     )
                   ) : (
-                    <ArrowUp className="w-4 h-4 text-gray-300" />
+                    <ArrowUp className="w-3 md:w-4 h-3 md:h-4 text-gray-300" />
                   )}
                 </div>
               </th>
@@ -78,32 +78,32 @@ export default function TransactionsTable() {
         </thead>
         <tbody>
           {sortedTransactions.map((tx) => (
-            <tr key={tx.id} className="hover:bg-gray-50">
-              <td className="pl-6 pr-[120px]py-2 whitespace-nowrap">
-                <div className="block w-full border-[#4B8B9F] border-b-[.2px] pb-1">
+            <tr key={tx.id} className="hover:bg-gray-50 w-full">
+              <td className="pl-6 py-2 whitespace-nowrap">
+                <div className="block w-full border-[#78c2d8] border-b-[.2px] pb-1">
                   {tx.date}
                 </div>
               </td>
               <td className="px-2 py-2 whitespace-nowrap">
-                <div className="block w-full border-[#4B8B9F] border-b-[.2px] pb-1">
+                <div className="block w-full border-[#78c2d8] border-b-[.2px] pb-1">
                   {tx.remark}
                 </div>
               </td>
               <td className="px-2 py-2 whitespace-nowrap">
-                <div className="block w-full border-[#4B8B9F] border-b-[.2px] pb-1">
+                <div className="block w-full border-[#78c2d8] border-b-[.2px] pb-1">
                   ${Math.abs(tx.amount).toLocaleString()}
                 </div>
               </td>
               <td className="px-2 py-2 whitespace-nowrap">
-                <div className="block w-full border-[#4B8B9F] border-b-[.2px] pb-1">
+                <div className="block w-full border-[#78c2d8] border-b-[.2px] pb-1">
                   {tx.currency}
                 </div>
               </td>
               <td className="px-2 py-2">
-                <div className="block w-full border-[#4B8B9F] border-b-[.2px] pb-1">
+                <div className="block w-full border-[#78c2d8] border-b-[.2px] pb-1">
                   <span className="inline-flex items-center gap-1">
                     <span
-                      className={`w-2 h-2 rounded-full ${
+                      className={`w-1 h-1 rounded-full ${
                         tx.type === "Credit" ? "bg-[#4B8B9F]" : "bg-red-500"
                       }`}
                     ></span>

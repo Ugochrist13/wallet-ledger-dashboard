@@ -9,26 +9,30 @@ export default function Header() {
   );
 
   return (
-    <header className="mb-2">
-      <div className="w-full flex items-center justify-between">
+    <header className="mb-4 px-2 md:px-0">
+      <div className="w-full flex items-center justify-between gap-2">
         <div className="flex items-center">
-          <h1 className="text-2xl font-bold mr-4">Wallet Ledger</h1>
-          <span className="h-2 w-2 bg-[#4B8B9F] rounded-full mr-1"></span>
-          <span className="text-sm text-[#4B8B9F]">Active</span>
+          <h1 className="md:text-2xl font-bold mr-2 md:mr-4">
+            Wallet Ledger
+          </h1>
+          <span className="h-1 md:h-2 w-1 md:w-2 bg-[#4B8B9F] rounded-full mr-1"></span>
+          <span className="text-xs md:text-sm text-[#4B8B9F]">Active</span>
         </div>
-        <div className="flex items-center">
-          <button className="mr-6 text-black bg-[#4B8B9F] text-sm px-3 py-1 rounded-xl">
+
+        <div className="flex items-center justify-end gap-3">
+          <button className="text-black bg-[#4B8B9F] text-xs md:text-sm px-2 py-1 rounded-xl">
             Share
           </button>
-          <div className="flex items-center justify-center rounded-4xl border-[.2px] border-[#9ac2ce] h-[26px] w-[30px] gap-1 ">
-            <span className="h-[2px] w-[2px] bg-black rounded-full"></span>
-            <span className="h-[2px] w-[2px] bg-black rounded-full"></span>
-            <span className="h-[2px] w-[2px] bg-black rounded-full"></span>
+          <div className="flex items-center justify-center border border-[#9ac2ce] h-[19px] md:h-[26px] w-[18px] md:w-[30px] rounded-2xl gap-0.5 md:gap-1">
+            <span className="h-[1px] md:h-[2px] w-[1px] md:w-[2px] bg-black rounded-full"></span>
+            <span className="h-[1px] md:h-[2px] w-[1px] md:w-[2px] bg-black rounded-full"></span>
+            <span className="h-[1px] md:h-[2px] w-[1px] md:w-[2px] bg-black rounded-full"></span>
           </div>
         </div>
       </div>
 
-      <div className="mt-6 mb-4 flex items-center gap-1">
+      {/* Avatars and Names */}
+      <div className="mt-4 mb-4 flex flex-wrap items-center gap-2">
         <div className="flex -space-x-3">
           {[1, 2, 3, 4].map((_, idx, arr) => (
             <Image
@@ -43,16 +47,18 @@ export default function Header() {
             />
           ))}
         </div>
-        <div className="h-8 rounded-full bg-gray-200 text-xs flex items-center justify-center font-light border-2 border-white">
+        <div className="h-8 px-3 rounded-full bg-gray-200 text-xs flex items-center justify-center font-light border-2 border-white">
           Avian, Liam, Noah +12 others
         </div>
       </div>
-      <div className="w-full flex gap-6 border-[#9ac2ce] border-b-[0.2px]  pt-1 pl-4">
+
+      {/* Tabs */}
+      <div className="w-full flex flex-wrap gap-4 border-[#9ac2ce] border-b pt-1 pl-2 md:pl-4">
         <button
           onClick={() => setActiveTab("overview")}
-          className={`pb-2 font-medium ${
+          className={`pb-2 text-sm md:text-base font-medium ${
             activeTab === "overview"
-              ? "border-b-1 border-[#4B8B9F] text-[#4B8B9F]"
+              ? "border-b-2 border-[#4B8B9F] text-[#4B8B9F]"
               : "text-gray-500 hover:text-black"
           }`}
         >
@@ -60,9 +66,9 @@ export default function Header() {
         </button>
         <button
           onClick={() => setActiveTab("transactions")}
-          className={`pb-2 font-medium ${
+          className={`pb-2 text-sm md:text-base font-medium ${
             activeTab === "transactions"
-              ? "border-b-1 border-[#4B8B9F] text-[#4B8B9F]"
+              ? "border-b-2 border-[#4B8B9F] text-[#4B8B9F]"
               : "text-gray-500 hover:text-black"
           }`}
         >

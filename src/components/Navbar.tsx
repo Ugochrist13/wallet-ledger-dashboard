@@ -3,10 +3,10 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between bg-white px-4 py-2 shadow-md">
-      <Image src="/assets/logo.svg" alt="Logo" width={88} height={68} />
-      <div className="flex items-center gap-4">
-        <div className="relative">
+    <nav className="w-full flex items-center justify-between bg-white px-4 py-2 shadow-md">
+      <Image src="/assets/logo.svg" alt="Logo" width={88} height={68} className="hidden md:block" />
+      <div className="flex w-full md:w-auto px-2 md:px-0 items-center gap-4">
+        <div className="relative w-4/5 md:w-auto">
           <Search className="absolute right-3 top-2 h-4 w-4 text-gray-500" />
           <input
             type="text"
