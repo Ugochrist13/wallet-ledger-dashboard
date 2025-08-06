@@ -42,11 +42,11 @@ export default function TransactionsTable() {
   });
 
   const headers = [
-    { label: "Date", field: "date", extraClass: "pl-6 pr-[80px]" },
-    { label: "Remark", field: "remark", extraClass: "px-2" },
-    { label: "Amount", field: "amount", extraClass: "px-2" },
-    { label: "Currency", field: "currency", extraClass: "px-2" },
-    { label: "Type", field: "type", extraClass: "px-2" },
+    { label: "Date", field: "date" },
+    { label: "Remark", field: "remark" },
+    { label: "Amount", field: "amount" },
+    { label: "Currency", field: "currency" },
+    { label: "Type", field: "type" },
   ] as const;
 
   return (
@@ -54,13 +54,19 @@ export default function TransactionsTable() {
       <table className="min-w-full text-xs md:text-sm">
         <thead>
           <tr className="text-left">
-            {headers.map(({ label, field, extraClass }) => (
+            {headers.map(({ label, field }) => (
               <th
                 key={field}
                 onClick={() => handleSort(field)}
-                className={`py-2 cursor-pointer w-full ${extraClass}`}
+                className={`py-2 cursor-pointer w-full whitespace-nowrap ${
+                  field === "date" ? "pl-6" : "px-2"
+                }`}
               >
-                <div className="flex w-full border-[#78c2d8] border-b-[.2px] pb-1 items-center gap-1">
+                <div
+                  className={`flex w-full border-[#78c2d8] border-b-[.2px] pb-1 items-center gap-1 $${
+                    field === "date" ? "pr-[80px]" : ""
+                  }`}
+                >
                   {label}
                   {sortField === field ? (
                     sortAsc ? (
