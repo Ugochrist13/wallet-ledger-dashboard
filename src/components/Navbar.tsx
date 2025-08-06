@@ -17,8 +17,8 @@ export default function Navbar() {
           className="hidden md:block"
         />
       </div>
-      <div className="flex w-full md:w-auto px-2 md:px-0 items-center gap-4">
-        <div className="relative w-4/5 md:w-auto">
+      <div className="flex px-2 md:px-0 items-center gap-4">
+        <div className="relative">
           <Search className="absolute right-3 top-2 h-4 w-4 text-gray-500" />
           <input
             type="text"

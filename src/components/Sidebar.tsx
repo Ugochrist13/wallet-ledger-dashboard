@@ -19,14 +19,14 @@ export default function Sidebar({ mobile = false }: { mobile?: boolean }) {
 
   if (mobile) {
     return (
-      <>
+      <div>
         <Menu
           className="w-6 h-6 cursor-pointer text-gray-800"
           onClick={() => setIsMobileOpen(true)}
         />
         {isMobileOpen && (
-          <div className="fixed inset-0 z-50 bg-black bg-opacity-40">
-            <aside className="w-[70%] max-w-[300px] bg-white h-full p-4">
+          <div className="fixed inset-0 z-50 bg-gray-500 opacity-90">
+            <aside className="w-[70%] bg-white h-full p-4">
               <div className="flex justify-end">
                 <X
                   className="w-6 h-6 cursor-pointer"
@@ -53,7 +53,7 @@ export default function Sidebar({ mobile = false }: { mobile?: boolean }) {
             </aside>
           </div>
         )}
-      </>
+      </div>
     );
   }
 

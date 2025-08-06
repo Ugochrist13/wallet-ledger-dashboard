@@ -7,7 +7,7 @@ import TransactionsTable from "./TransactionTable";
 
 export default function WalletDashboard() {
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
+    <div className="bg-gray-50 p-2">
       <Header />
       <div className="p-4">
         <SummaryCard />
