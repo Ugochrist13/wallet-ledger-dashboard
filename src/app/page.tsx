@@ -9,7 +9,7 @@ export default function HomePage() {
       <Sidebar />
       <div className="flex-1">
         <Navbar />
-        <main className="p-4">
+        <main>
           <WalletDashboard />
         </main>
       </div>

@@ -26,8 +26,8 @@ const summaryData = [
 
 export default function SummaryCard() {
   return (
-    <div className="w-full p-[10px]">
-      <div className="font-extrabold text-[#000] mb-[100px] w-full " >Summary</div>
+    <div className="w-full">
+      <div className="font-extrabold text-[#000] w-full " >Summary</div>
       <div className="flex flex-wrap items-center justify-between gap-4 mt-4 p-[10px]">
         {summaryData.map((item) => (
           <div

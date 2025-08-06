@@ -1,35 +1,69 @@
-import React from 'react';
-import { Search, Menu } from 'lucide-react';
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
 
 export default function Header() {
+  const [activeTab, setActiveTab] = useState<"overview" | "transactions">(
+    "overview"
+  );
+
   return (
-    <header className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-4">
-      {/* Left section */}
-      <div className="flex items-center gap-4">
-        <img src="/logo.svg" alt="FinTrack Logo" className="h-10 w-auto" />
-        <div>
-          <h1 className="text-2xl font-bold">Wallet Ledger</h1>
-          <span className="text-sm text-green-600 font-medium">● Active</span>
+    <header className="mb-2">
+      <div className="w-full flex items-center justify-between">
+        <div className="flex items-center">
+          <h1 className="text-2xl font-bold mr-4">Wallet Ledger</h1>
+          <span className="h-2 w-2 bg-[#4B8B9F] rounded-full mr-1"></span>
+          <span className="text-sm text-[#4B8B9F]">Active</span>
+        </div>
+        <div className="flex items-center">
+          <button className="mr-3 text-white bg-[#4B8B9F] text-sm px-2 py-1 rounded-lg">
+            Share
+          </button>
+          <span className="h-[2px] w-[2px] bg-black rounded-full mr-1"></span>
+          <span className="h-[2px] w-[2px] bg-black rounded-full mr-1"></span>
+          <span className="h-[2px] w-[2px] bg-black rounded-full mr-1"></span>
         </div>
       </div>
 
-      {/* Right section */}
-      <div className="flex items-center gap-4 w-full md:w-auto">
-        <div className="relative flex-1 md:flex-none">
-          <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-500" />
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-full pl-8 pr-4 py-2 border rounded-md text-sm focus:outline-none"
-          />
+      <div className="mt-6 mb-4 flex items-center gap-1">
+        <div className="flex -space-x-3">
+          {[1, 2, 3, 4].map((_, idx, arr) => (
+            <Image
+              key={idx}
+              src="/profile/img1.svg"
+              alt="User"
+              width={32}
+              height={32}
+              className={`w-8 h-8 rounded-full border-1 border-white z-${arr.length - idx}`}
+            />
+          ))}
         </div>
-        <div className="w-10 h-10 rounded-full bg-gray-300" title="User Avatar" />
+        <div className="h-8 rounded-full bg-gray-200 text-xs flex items-center justify-center font-light border-2 border-white">
+          Avian, Liam, Noah +12 others
+        </div>
       </div>
-
-      {/* Tabs */}
-      <div className="w-full flex gap-6 border-b pt-2">
-        <button className="pb-2 border-b-2 border-black font-medium">Overview</button>
-        <button className="pb-2 text-gray-500 hover:text-black">Transactions</button>
+      <div className="w-full flex gap-6  p-1 pl-4">
+        <button
+          onClick={() => setActiveTab("overview")}
+          className={`pb-2 font-medium ${
+            activeTab === "overview"
+              ? "border-b-1 border-[#4B8B9F] text-[#4B8B9F]"
+              : "text-gray-500 hover:text-black"
+          }`}
+        >
+          Overview
+        </button>
+        <button
+          onClick={() => setActiveTab("transactions")}
+          className={`pb-2 font-medium ${
+            activeTab === "transactions"
+              ? "border-b-1 border-[#4B8B9F] text-[#4B8B9F]"
+              : "text-gray-500 hover:text-black"
+          }`}
+        >
+          Transactions
+        </button>
       </div>
     </header>
   );
