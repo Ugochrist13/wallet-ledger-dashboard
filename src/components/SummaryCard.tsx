@@ -1,5 +1,4 @@
 import React from "react";
-import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 
 const summaryData = [
   {
@@ -27,22 +26,24 @@ const summaryData = [
 export default function SummaryCard() {
   return (
     <div className="w-full">
-      <div className="font-extrabold text-[#000] w-full " >Summary</div>
+      <div className="font-extrabold text-[#000] w-full ">Summary</div>
       <div className="flex flex-wrap items-center justify-between gap-4 mt-4 p-[10px]">
         {summaryData.map((item) => (
           <div
             key={item.label}
             className="bg-white rounded-lg shadow p-4 w-full sm:w-[48%] lg:w-[23%]"
           >
-            <div className="text-xs font-semibold text-black mb-1 flex items-center gap-2">
-              <span>{item.label}</span>
-              <span>•••</span>
+            <div className="text-xs font-semibold text-black mb-1 flex items-center">
+              <span className="mr-5">{item.label}</span>
+              <span className="h-[3px] w-[3px] bg-black rounded-full mr-1"></span>
+              <span className="h-[3px] w-[3px] bg-black rounded-full mr-1"></span>
+              <span className="h-[3px] w-[3px] bg-black rounded-full mr-1"></span>
             </div>
 
             <div className="text-xl font-bold mb-1">{item.value}</div>
 
             <div
-              className={`flex items-center text-sm font-medium text-green-600`}
+              className={`flex items-center text-xs font-medium text-[#4B8B9F]`}
             >
               <span className="ml-1">{item.change}</span>
             </div>

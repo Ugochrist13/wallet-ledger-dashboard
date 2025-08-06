@@ -17,12 +17,14 @@ export default function Header() {
           <span className="text-sm text-[#4B8B9F]">Active</span>
         </div>
         <div className="flex items-center">
-          <button className="mr-3 text-white bg-[#4B8B9F] text-sm px-2 py-1 rounded-lg">
+          <button className="mr-6 text-black bg-[#4B8B9F] text-sm px-3 py-1 rounded-xl">
             Share
           </button>
-          <span className="h-[2px] w-[2px] bg-black rounded-full mr-1"></span>
-          <span className="h-[2px] w-[2px] bg-black rounded-full mr-1"></span>
-          <span className="h-[2px] w-[2px] bg-black rounded-full mr-1"></span>
+          <div className="flex items-center justify-center rounded-4xl border-[.2px] border-[#9ac2ce] h-[26px] w-[30px] gap-1 ">
+            <span className="h-[2px] w-[2px] bg-black rounded-full"></span>
+            <span className="h-[2px] w-[2px] bg-black rounded-full"></span>
+            <span className="h-[2px] w-[2px] bg-black rounded-full"></span>
+          </div>
         </div>
       </div>
 
@@ -35,7 +37,9 @@ export default function Header() {
               alt="User"
               width={32}
               height={32}
-              className={`w-8 h-8 rounded-full border-1 border-white z-${arr.length - idx}`}
+              className={`w-8 h-8 rounded-full border-1 border-white z-${
+                arr.length - idx
+              }`}
             />
           ))}
         </div>
@@ -43,7 +47,7 @@ export default function Header() {
           Avian, Liam, Noah +12 others
         </div>
       </div>
-      <div className="w-full flex gap-6  p-1 pl-4">
+      <div className="w-full flex gap-6 border-[#9ac2ce] border-b-[0.2px]  pt-1 pl-4">
         <button
           onClick={() => setActiveTab("overview")}
           className={`pb-2 font-medium ${

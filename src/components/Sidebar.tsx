@@ -42,7 +42,7 @@ export default function Sidebar() {
     <aside
       className={`${
         isCollapsed ? "w-[80px]" : "w-[200px]"
-      } bg-white h-screen border-r p-4 transition-all duration-300 hidden md:block`}
+      } bg-white h-screen sticky top-0 px-4 py-1 transition-all duration-300 hidden md:block`}
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 px-3 py-2 mb-2">
@@ -58,8 +58,8 @@ export default function Sidebar() {
           <li className="" key={item.label}>
             <Link
               href={item.path}
-              className={`flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-100 transition ${
-                pathname === item.path ? "bg-[#bed1d8] text font-semibold" : ""
+              className={`flex items-center gap-3 px-3 py-1 text-gray-700 rounded-xl hover:bg-gray-100 transition ${
+                pathname === item.path ? "bg-[#d9e8ed] text-[#58b2cd] font-semibold" : ""
               }`}
             >
               {item.icon}
